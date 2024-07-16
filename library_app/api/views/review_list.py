@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 
 class ReviewListView(APIView):
     def get(self, request):
+        print("Fr")
         review=Review.objects.all()
         print(review)
         serializer=ReviewSerializer(review,many=True)
