@@ -1,7 +1,7 @@
 from rest_framework.authtoken.views import obtain_auth_token
 from django.urls import path 
 from users_app.api.views.registration_user import RegisterUser
-from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView # type: ignore
 
 urlpatterns =[
     path('login/',obtain_auth_token,name='login'),#genera token django
