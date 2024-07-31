@@ -19,7 +19,8 @@ class RegisterUser(APIView):
             data['email']=account.email
             
             refresh = RefreshToken.for_user(account)
-            
+            #token=Token.objects.get(user=account).key #obtener token creado en django
+            #data['token']=token
 
             data['token']= {
                    'refresh': str(refresh),
