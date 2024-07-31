@@ -3,8 +3,12 @@ from library_app.api.serializers.book_serializer import BookSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
+
 
 class BookDetail(APIView):
+    permission_classes=[IsAuthenticated]
+
     def get(self, request, pk):
         try:
             book=Book.objects.get(pk=pk)

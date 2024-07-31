@@ -3,9 +3,12 @@ from library_app.api.serializers.review_serializer import ReviewSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 
 
 class CreateReview(APIView):
+    permission_classes=[IsAuthenticated]
+
     def post(self, request,pk):
         data=request.data
         data['books']=pk
